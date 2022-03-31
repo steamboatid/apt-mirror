@@ -2171,7 +2171,7 @@ sub mainsub_main_download
 
     (my $size_mirror) = $size_output =~ /\A([^:\s]+)/;
     my $directory = get_variable("mirror_path");
-    my $command = "df $directory | awk -F'[^0-9]*' 'NR==2 {print \$5}'";
+    my $command = "df $directory | awk -F'[^0-9]*' 'NR==2 {print \$4}'";
     (my $directory_size) = format_bytes(`$command`*1000) =~ /\A([^:\s]+)/;
 
     if ($directory_size <= $size_mirror) {
